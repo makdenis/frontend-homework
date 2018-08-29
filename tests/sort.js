@@ -38,4 +38,16 @@ QUnit.module('Тестируем функцию sort', function () {
 		assert.strictEqual(sort('i love frontend'), 'Defnnort Elov I');
 		assert.strictEqual(sort('hello world'), 'Dlorw Ehllo');
 	});
+	
+	QUnit.test('Функция работает правильно с регистрами', function (assert) {
+		assert.strictEqual(sort('СОРТИРОВКА'), 'Авикооррст');
+		assert.strictEqual(sort('СоРтировка'), 'Авикооррст');
+		assert.strictEqual(sort('SORT'), 'Orst');
+		assert.strictEqual(sort('SoRt'), 'Orst');
+	});
+	QUnit.test('Комплексный тест', function (assert) {
+		assert.strictEqual(sort('Я СОРТИРУЮ все вЕрНо'), 'Венор Вес Иоррстую Я');
+		assert.strictEqual(sort('IT iS workIng'), 'Giknorw Is It');
+		
+	});
 });
